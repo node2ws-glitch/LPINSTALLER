@@ -23,19 +23,19 @@ read -p "Select option: " panel
 case $panel in
 
 1)
-bash <(curl -fsSL https://pterodactyl-installer.se)
+bash <(curl -fsSL https://raw.githubusercontent.com/node2ws-glitch/LPINSTALLER/main/panel/ptero.sh)
 ;;
 
 2)
-bash <(curl -fsSL https://raw.githubusercontent.com/jexactyl/jexactyl/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingCode/main/panel/Jexactyl/run.sh)
 ;;
 
 3)
-echo "Reviactyl installer coming soon"
+bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingCode/main/panel/unReviactyl.sh)
 ;;
 
 4)
-echo "FeatherPanel installer coming soon"
+bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingCode/main/panel/unFEATHERPANEL.sh)
 ;;
 
 0)
