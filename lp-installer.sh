@@ -1,46 +1,55 @@
 #!/bin/bash
 
-# ===========================================================
-# LP ALL IN ONE INSTALLER - LightingPlays
+# ==========================================================
+# LP INSTALLER
+# LightingPlays Official Installer
 # Version: v1.0
-# ===========================================================
+# ==========================================================
 
-# --- COLORS ---
-B_CYAN='\033[1;38;5;51m'
-B_PURPLE='\033[1;38;5;141m'
-B_GREEN='\033[1;38;5;82m'
-B_RED='\033[1;38;5;196m'
-GOLD='\033[38;5;220m'
-W='\033[1;37m'
-G='\033[0;38;5;244m'
+# COLORS
+CYAN='\033[1;36m'
+PURPLE='\033[1;35m'
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+YELLOW='\033[1;33m'
+WHITE='\033[1;37m'
+GRAY='\033[0;37m'
 NC='\033[0m'
 
-# --- LOADING ANIMATION ---
+# ----------------------------------------------------------
+# Loading Animation
+# ----------------------------------------------------------
 loading() {
 clear
 echo
-echo -e "${B_CYAN}Starting LP Installer...${NC}"
-for i in {1..20}; do
-printf "${B_GREEN}▓${NC}"
-sleep 0.05
+echo -e "${CYAN}Initializing LP Installer...${NC}"
+for i in {1..30}; do
+printf "${GREEN}█${NC}"
+sleep 0.03
 done
 echo
-sleep 0.5
+sleep 0.4
 }
 
-# --- SYSTEM METRICS ---
-get_metrics() {
-CPU=$(top -bn1 | grep "Cpu(s)" | awk '{printf "%.0f", $2+$4}')
-RAM=$(free | grep Mem | awk '{printf "%.0f", $3*100/$2}')
-UPT=$(uptime -p | sed 's/up //')
+# ----------------------------------------------------------
+# System Info
+# ----------------------------------------------------------
+system_info() {
+
+CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print int($2 + $4)}')
+RAM=$(free | awk '/Mem:/ {printf("%.0f"), $3/$2 * 100}')
 DISK=$(df -h / | awk 'NR==2 {print $5}')
+UPTIME=$(uptime -p | sed 's/up //')
 HOST=$(hostname)
+
 }
 
-# --- ASCII LOGO ---
+# ----------------------------------------------------------
+# Logo
+# ----------------------------------------------------------
 logo() {
 
-echo -e "${B_CYAN}"
+echo -e "${CYAN}"
 echo "██╗     ██████╗ "
 echo "██║     ██╔══██╗"
 echo "██║     ██████╔╝"
@@ -49,39 +58,50 @@ echo "███████╗██║     "
 echo "╚══════╝╚═╝     "
 echo -e "${NC}"
 
-echo -e "${GOLD}LP ALL IN ONE INSTALLER${NC}"
-echo -e "${G}Version v1.0 | LightingPlays${NC}"
+echo -e "${YELLOW}LP ALL-IN-ONE INSTALLER${NC}"
+echo -e "${GRAY}LightingPlays Deployment Toolkit${NC}"
+echo -e "${GRAY}Version v1.0${NC}"
 echo
 }
 
-# --- UI ---
-render_ui() {
-clear
-get_metrics
+# ----------------------------------------------------------
+# Menu UI
+# ----------------------------------------------------------
+menu() {
 
+clear
+system_info
 logo
 
-echo -e "${W}Host:${NC} $HOST"
-echo -e "${W}Uptime:${NC} $UPT"
-echo -e "${W}CPU:${NC} $CPU%   ${W}RAM:${NC} $RAM%   ${W}Disk:${NC} $DISK"
+echo -e "${WHITE}Host:${NC} $HOST"
+echo -e "${WHITE}Uptime:${NC} $UPTIME"
+echo -e "${WHITE}CPU:${NC} ${GREEN}$CPU%${NC}   ${WHITE}RAM:${NC} ${GREEN}$RAM%${NC}   ${WHITE}Disk:${NC} ${GREEN}$DISK${NC}"
 echo
 
-echo -e "${B_PURPLE}1.${NC} Panels                   ${B_PURPLE}5.${NC} Server Utilities"
-echo -e "${B_PURPLE}2.${NC} VPS Panels               ${B_PURPLE}6.${NC} Theme & BluePrints"
-echo -e "${B_PURPLE}3.${NC} Dashboards               ${B_PURPLE}7.${NC} VPS Edit LPRO"
-echo -e "${B_PURPLE}4.${NC} Virtualization"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${PURPLE}1.${NC} Panels                ${PURPLE}5.${NC} Server Utilities"
+echo -e "${PURPLE}2.${NC} VPS Panels            ${PURPLE}6.${NC} Theme & BluePrints"
+echo -e "${PURPLE}3.${NC} Dashboards            ${PURPLE}7.${NC} VPS Edit LPRO"
+echo -e "${PURPLE}4.${NC} Virtualization"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo
-echo -e "${B_RED}0.${NC} Exit"
+echo -e "${RED}0.${NC} Exit"
 echo
-echo -ne "${B_CYAN}Select Option:${NC} "
+echo -ne "${CYAN}Select Option ➜ ${NC}"
+
 }
 
-# --- START LOADING ---
+# ----------------------------------------------------------
+# Start Loading
+# ----------------------------------------------------------
 loading
 
-# --- CONTROLLER ---
+# ----------------------------------------------------------
+# Controller
+# ----------------------------------------------------------
 while true; do
-render_ui
+
+menu
 read -r opt
 
 case $opt in
@@ -115,13 +135,14 @@ bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingC
 ;;
 
 0)
-echo -e "${B_RED}Exiting LP Installer...${NC}"
+echo
+echo -e "${RED}Closing LP Installer...${NC}"
 sleep 1
 exit
 ;;
 
 *)
-echo -e "${B_RED}Invalid Option!${NC}"
+echo -e "${RED}Invalid Option!${NC}"
 sleep 1
 ;;
 
