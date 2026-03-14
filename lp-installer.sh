@@ -107,7 +107,7 @@ read -r opt
 case $opt in
 
 1)
-bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingCode/main/panel/run.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/node2ws-glitch/LPINSTALLER/main/panels.sh)
 ;;
 
 2)
