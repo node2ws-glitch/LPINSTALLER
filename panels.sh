@@ -1,4 +1,4 @@
-panels_menu() {
+#!/bin/bash
 
 while true; do
 
@@ -17,6 +17,7 @@ echo "4. FeatherPanel"
 echo
 echo "0. Back"
 echo
+
 read -p "Select option: " panel
 
 case $panel in
@@ -30,15 +31,15 @@ bash <(curl -fsSL https://raw.githubusercontent.com/jexactyl/jexactyl/main/insta
 ;;
 
 3)
-bash <(curl -fsSL https://raw.githubusercontent.com/reviactyl/reviactyl/main/install.sh)
+echo "Reviactyl installer coming soon"
 ;;
 
 4)
-bash <(curl -fsSL https://raw.githubusercontent.com/featherpanel/panel/main/install.sh)
+echo "FeatherPanel installer coming soon"
 ;;
 
 0)
-break
+exit
 ;;
 
 *)
@@ -49,5 +50,3 @@ sleep 1
 esac
 
 done
-
-}
