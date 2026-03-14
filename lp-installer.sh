@@ -115,11 +115,11 @@ bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingC
 ;;
 
 3)
-bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingCode/main/menu/System1.sh)
+soon
 ;;
 
 4)
-bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingCode/main/no-kvm/run.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/node2ws-glitch/LPINSTALLER/main/vm.sh)
 ;;
 
 5)
