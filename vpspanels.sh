@@ -51,3 +51,6 @@ esac
 done
 
 }
+
+# 👇 THIS LINE FIXES EVERYTHING
+vps_panels_menu
