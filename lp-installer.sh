@@ -111,7 +111,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/node2ws-glitch/LPINSTALLER/m
 ;;
 
 2)
-bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/ExtremLightingCode/main/run.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/DreamHost2ws/HVM5.1/main/LP-Hvm-Installer.sh)
 ;;
 
 3)
